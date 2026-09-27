@@ -1,0 +1,16 @@
+# Real spreadsheets — never commit these, only *-sample.xlsx files belong in the repo
+downloads/payout-calculator.xlsx
+downloads/expense-tracker.xlsx
+downloads/cohost-split.xlsx
+
+# Catch-all: ignore any .xlsx that isn't a sample
+downloads/*.xlsx
+!downloads/*-sample.xlsx
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+*.swp
+
+# Node, if you ever add build tooling
+node_modules/
