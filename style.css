@@ -115,6 +115,7 @@ a:hover {
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 0.85rem;
+  text-wrap: balance;
 }
 
 .tagline {
@@ -133,14 +134,14 @@ a:hover {
 
 .hero .btn-ghost {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.35);
-  background: transparent;
+  border-color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .hero .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.85);
 }
 
 .hero .btn-primary:hover {
@@ -165,6 +166,7 @@ a:hover {
   letter-spacing: -0.02em;
   color: var(--ink);
   margin-bottom: 0.5rem;
+  text-wrap: balance;
 }
 
 .section-lede {
@@ -309,15 +311,16 @@ a:hover {
 }
 
 .plan-card--featured {
-  border-color: #93c5fd;
-  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.12);
+  border: 2px solid var(--accent);
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.16), 0 0 0 4px var(--accent-ring);
   background: linear-gradient(180deg, #f8fbff 0%, #ffffff 40%);
+  padding-top: 2.15rem;
 }
 
 .plan-badge {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.85rem;
+  right: 0.85rem;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -333,7 +336,10 @@ a:hover {
   font-size: 1.25rem;
   margin-bottom: 0.1rem;
   color: var(--ink);
-  padding-right: 4.5rem;
+}
+
+.plan-card--featured h3 {
+  padding-right: 5rem;
 }
 
 .plan-card .price {
@@ -392,7 +398,7 @@ a:hover {
 
 .plans-aside {
   text-align: center;
-  color: var(--ink-soft);
+  color: var(--ink-muted);
   font-size: 0.9rem;
   max-width: 36rem;
   margin: 1.5rem auto 0;
@@ -435,7 +441,7 @@ a:hover {
 .setup-note {
   margin-top: 0.3rem;
   font-size: 0.85rem;
-  color: var(--ink-soft);
+  color: var(--ink-muted);
 }
 
 .setup-note a {
@@ -506,7 +512,7 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--ink-muted);
   margin-bottom: 0.9rem;
 }
 
@@ -589,7 +595,7 @@ a:hover {
 
 .access-note {
   text-align: center;
-  color: var(--ink-soft);
+  color: var(--ink-muted);
   font-size: 0.9rem;
   max-width: 36rem;
   margin: 0 auto 1.25rem;
@@ -599,11 +605,29 @@ a:hover {
   border-radius: var(--radius-sm);
 }
 
+.how-cta {
+  text-align: center;
+  max-width: 28rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.how-cta .btn {
+  width: 100%;
+  max-width: 22rem;
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+}
+
 .how-note {
   text-align: center;
   color: var(--ink-muted);
   max-width: 40rem;
-  margin: 0 auto;
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 .how-note a {
@@ -614,7 +638,7 @@ a:hover {
 .site-footer {
   text-align: center;
   padding: 2.25rem 1.25rem 2.75rem;
-  color: var(--ink-soft);
+  color: var(--ink-muted);
   font-size: 0.95rem;
   border-top: 1px solid var(--line);
   background: #eef2f7;
@@ -657,15 +681,41 @@ a:hover {
 }
 
 @media (max-width: 640px) {
+  /* Keep benefit + setup as 2×2; plans and steps go 1-col */
   .plan-grid,
-  .benefit-grid,
-  .setup-grid,
   .steps {
     grid-template-columns: 1fr;
   }
 
-  .plan-card h3 {
-    padding-right: 0;
+  .benefit-grid,
+  .setup-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .benefit-card {
+    padding: 1rem 0.85rem;
+  }
+
+  .setup-card {
+    padding: 1rem 0.7rem;
+  }
+
+  .setup-price {
+    font-size: 1.4rem;
+  }
+
+  .plan-card--featured {
+    padding-top: 2.35rem;
+  }
+
+  .plan-badge {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .plan-card--featured h3 {
+    padding-right: 5.25rem;
   }
 
   .steps > li {
@@ -673,12 +723,17 @@ a:hover {
     margin: 0 auto;
     width: 100%;
   }
+
+  .secondary-card .btn-row .btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 0.65rem;
+  }
 }
 
 @media (max-width: 560px) {
   .hero {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .btn-row {
@@ -695,6 +750,38 @@ a:hover {
 
   .hero-actions .btn {
     width: 100%;
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .secondary-card .btn-row .btn {
+    font-size: 0.95rem;
+    padding: 0.75rem 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .benefit-grid,
+  .setup-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-card--featured h3 {
+    padding-right: 0;
+    padding-top: 0.15rem;
+  }
+
+  .plan-badge {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: 0.15rem;
+  }
+
+  .plan-card--featured {
+    padding-top: 1.5rem;
   }
 }
 
